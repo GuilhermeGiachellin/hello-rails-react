@@ -1,12 +1,18 @@
 import React from "react"
-import { Route, Routes } from 'react-router-dom'
-import Messages from './messages/Messages'
+import { Provider } from "react-redux"
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Greeting from './greeting/Greeting'
+import store from '../redux/configureStore'
 
 const App = () => {
   return (
-    <Routes>
-      <Route exact path="/" element={<Messages />}/>
-    </Routes>
+    <Provider store={store}>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Greeting />} />
+          </Routes>
+      </BrowserRouter>
+    </Provider>
   )
 }
 
